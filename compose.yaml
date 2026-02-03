@@ -43,6 +43,7 @@ services:
       - traefik.http.middlewares.n8n.headers.STSPreload=true
       - traefik.http.routers.n8n.middlewares=n8n@docker
     environment:
+      - NODES_EXCLUDE=${NODES_EXCLUDE:-'[]'}
       - N8N_PROXY_HOPS=1
       - N8N_LICENSE_ACTIVATION_KEY=${N8N_LICENSE_ACTIVATION_KEY:-}
       - N8N_ENCRYPTION_KEY=${N8N_ENCRYPTION_KEY}
